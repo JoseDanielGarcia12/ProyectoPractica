@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Módulo de Monitorías Académicas - Estudiante</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e3f2fd;
+            font-family: 'Arial', sans-serif;
+            padding: 20px;
+            position: relative;
+            min-height: 100vh; 
+            padding-bottom: 60px; 
+        }
+        nav {
+            background-color: #f8f9fa; 
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            color: #1e88e5;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+        .btn-custom {
+            background-color: #2196f3;
+            color: white;
+            border-radius: 20px;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+        .btn-custom:hover {
+            background-color: #1976d2;
+            transform: scale(1.05);
+        }
+        .card {
+            margin-bottom: 20px;
+        }
+        footer {
+            position: absolute; 
+            left: 0;
+            right: 0;
+            bottom: 0;
+            text-align: center;
+            margin-top: 30px;
+            font-size: 0.9em;
+            color: #6c757d;
+            background-color: #f8f9fa; 
+            padding: 10px 0; 
+            box-shadow: 0 -2px 4px rgba(0, 0, 0, 0.1); 
+        }
+        .hidden {
+            display: none;
+        }
+        @media (max-width: 768px) {
+            .btn-custom {
+                width: 100%; 
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- Header -->
+<nav class="navbar navbar-expand-lg navbar-light shadow">
+    <div class="container d-flex justify-content-between align-items-center">
+        <a class="navbar-brand text-success logo h1" href="index.html">
+            TuBienestar
+        </a>
+
+        <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="templatemo_main_nav">
+            <ul class="navbar-nav d-flex justify-content-between mx-lg-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Monitorías Académicas</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Escuelas de Formación</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Atención Médica</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Atención Psicológica</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="Login.html">Seguimiento TAE</a>
+                </li>
+            </ul>
+            
+            <div class="d-flex align-items-center">
+                <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                    <div class="input-group">
+                        <input type="text" class="form-control" id="inputMobileSearch" placeholder="Buscar...">
+                        <div class="input-group-text">
+                            <i class="fa fa-fw fa-search"></i>
+                        </div>
+                    </div>
+                </div>
+                <a class="nav-icon position-relative text-decoration-none" href="Login.html">
+                    <button class="btn btn-dark">Iniciar Sesión</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</nav>
+<!-- Close Header -->
+
+<div class="container">
+    <h1>Módulo de Monitorías Académicas</h1>
+
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title"><i class="fas fa-calendar-plus"></i> Agendar Monitoría</span>
+                    <button class="btn btn-custom" id="agendar">Agendar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title"><i class="fas fa-calendar-times"></i> Cancelar Monitoría</span>
+                    <button class="btn btn-custom" id="cancelar">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title"><i class="fas fa-calendar-edit"></i> Reprogramar Monitoría</span>
+                    <button class="btn btn-custom" id="reprogramar">Reprogramar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col s12 m4">
+            <div class="card">
+                <div class="card-content">
+                    <span class="card-title"><i class="fas fa-history"></i> Historial de Monitorías</span>
+                    <button class="btn btn-custom" id="historial">Ver Historial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<!-- Modal para Agendar Monitoría -->
+<div id="calendarioModal" class="modal">
+    <div class="modal-content">
+        <h5>Seleccionar Fecha y Hora</h5>
+        <label for="fecha">Fecha:</label>
+        <input type="text" id="fecha" class="datepicker">
+        <label for="hora">Hora:</label>
+        <select id="hora" class="browser-default">
+            <option value="" disabled selected>Seleccione una hora</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">01:00 PM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="16:00">04:00 PM</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-custom" id="confirmarAgendar">Confirmar</button>
+        <button class="btn btn-flat modal-close">Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal para Cancelar Monitoría -->
+<div id="cancelarModal" class="modal">
+    <div class="modal-content">
+        <h5>Cancelar Monitoría</h5>
+        <p>Seleccione la monitoría que desea cancelar:</p>
+        <select id="monitoriaACancelar" class="browser-default">
+            <option value="" disabled selected>Seleccione una monitoría</option>
+            <!-- Las opciones se llenarán dinámicamente -->
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-custom" id="confirmarCancelar">Confirmar Cancelación</button>
+        <button class="btn btn-flat modal-close">Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal para Reprogramar Monitoría -->
+<div id="reprogramarModal" class="modal">
+    <div class="modal-content">
+        <h5>Reprogramar Monitoría</h5>
+        <p>Seleccione la monitoría que desea reprogramar:</p>
+        <select id="monitoriaAReprogramar" class="browser-default">
+            <option value="" disabled selected>Seleccione una monitoría</option>
+            <!-- Las opciones se llenarán dinámicamente -->
+        </select>
+        <label for="nuevaFecha">Nueva Fecha:</label>
+        <input type="text" id="nuevaFecha" class="datepicker">
+        <label for="nuevaHora">Nueva Hora:</label>
+        <select id="nuevaHora" class="browser-default">
+            <option value="" disabled selected>Seleccione una nueva hora</option>
+            <option value="09:00">09:00 AM</option>
+            <option value="10:00">10:00 AM</option>
+            <option value="11:00">11:00 AM</option>
+            <option value="12:00">12:00 PM</option>
+            <option value="13:00">01:00 PM</option>
+            <option value="14:00">02:00 PM</option>
+            <option value="15:00">03:00 PM</option>
+            <option value="16:00">04:00 PM</option>
+        </select>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-custom" id="confirmarReprogramar">Confirmar Reprogramación</button>
+        <button class="btn btn-flat modal-close">Cancelar</button>
+    </div>
+</div>
+
+<!-- Modal para Historial de Monitorías -->
+<div id="historialModal" class="modal">
+    <div class="modal-content">
+        <h5>Historial de Monitorías</h5>
+        <ul id="historialLista">
+            <!-- Historial se llenará dinámicamente -->
+        </ul>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-flat modal-close">Cerrar</button>
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 TuBienestar. Todos los derechos reservados.</p>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script>
+    $(document).ready(function () {
+        $('.modal').modal();
+        $('.datepicker').datepicker();
+
+        // Simular citas para el historial
+        const citas = [
+            { fecha: "2024-10-01", hora: "10:00", estado: "Asistida" },
+            { fecha: "2024-10-02", hora: "11:00", estado: "Cancelada" },
+            { fecha: "2024-10-03", hora: "12:00", estado: "Asistida" },
+        ];
+
+        $('#agendar').click(function () {
+            $('#calendarioModal').modal('open');
+        });
+
+        $('#confirmarAgendar').click(function () {
+            const fecha = $('#fecha').val();
+            const hora = $('#hora').val();
+            if (fecha && hora) {
+                alert(`Monitoría agendada para ${fecha} a las ${hora}.`);
+                $('#calendarioModal').modal('close');
+            } else {
+                alert('Por favor, seleccione una fecha y una hora.');
+            }
+        });
+
+        $('#cancelar').click(function () {
+            $('#cancelarModal').modal('open');
+            const select = $('#monitoriaACancelar');
+            select.empty();
+            citas.forEach((cita, index) => {
+                select.append(`<option value="${index}">${cita.fecha} a las ${cita.hora} (${cita.estado})</option>`);
+            });
+        });
+
+        $('#confirmarCancelar').click(function () {
+            const selectedIndex = $('#monitoriaACancelar').val();
+            if (selectedIndex) {
+                citas[selectedIndex].estado = "Cancelada";
+                alert(`Monitoría de ${citas[selectedIndex].fecha} a las ${citas[selectedIndex].hora} cancelada.`);
+                $('#cancelarModal').modal('close');
+            } else {
+                alert('Por favor, seleccione una monitoría para cancelar.');
+            }
+        });
+
+        $('#reprogramar').click(function () {
+            $('#reprogramarModal').modal('open');
+            const select = $('#monitoriaAReprogramar');
+            select.empty();
+            citas.forEach((cita, index) => {
+                select.append(`<option value="${index}">${cita.fecha} a las ${cita.hora} (${cita.estado})</option>`);
+            });
+        });
+
+        $('#confirmarReprogramar').click(function () {
+            const selectedIndex = $('#monitoriaAReprogramar').val();
+            const nuevaFecha = $('#nuevaFecha').val();
+            const nuevaHora = $('#nuevaHora').val();
+            if (selectedIndex && nuevaFecha && nuevaHora) {
+                citas[selectedIndex].fecha = nuevaFecha;
+                citas[selectedIndex].hora = nuevaHora;
+                alert(`Monitoría reprogramada para ${nuevaFecha} a las ${nuevaHora}.`);
+                $('#reprogramarModal').modal('close');
+            } else {
+                alert('Por favor, complete todos los campos.');
+            }
+        });
+
+        $('#historial').click(function () {
+            $('#historialModal').modal('open');
+            const historialLista = $('#historialLista');
+            historialLista.empty();
+            citas.forEach(cita => {
+                historialLista.append(`<li>${cita.fecha} a las ${cita.hora} - ${cita.estado}</li>`);
+            });
+        });
+    });
+</script>
+
+</body>
+</html>

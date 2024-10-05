@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesión - TuBienestar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    
+    <style>
+        body {
+            font-family: 'Ubuntu', sans-serif;
+            background: linear-gradient(to bottom right, #0d4037, #033e1b);
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #fff; /* Fondo blanco para el encabezado */
+        }
+
+        .navbar-nav .nav-link {
+            color: #0d4037; /* Color del texto en el encabezado */
+        }
+
+        .navbar-brand {
+            color: #0d4037; /* Color del logo */
+        }
+
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover {
+            color: #033e1b; /* Color del texto al pasar el mouse */
+        }
+
+        .login-container {
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
+            max-width: 400px;
+            margin: 50px auto;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .login-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #033e1b;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .form-control, .form-select {
+            border-radius: 8px;
+            padding: 12px;
+        }
+
+        .btn-login {
+            background-color: #0d4037;
+            color: white;
+            width: 100%;
+            padding: 12px;
+            border-radius: 8px;
+            border: none;
+            font-weight: bold;
+            font-size: 16px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-login:hover {
+            background-color: #033e1b;
+            transform: scale(1.05);
+        }
+
+        .message {
+            text-align: center;
+            font-weight: bold;
+            margin-top: 10px;
+            height: 24px;
+        }
+
+        .error {
+            color: red;
+            animation: shake 0.5s;
+        }
+
+        .success {
+            color: green;
+        }
+
+        @keyframes shake {
+            0% { transform: translateX(0); }
+            25% { transform: translateX(-5px); }
+            50% { transform: translateX(5px); }
+            75% { transform: translateX(-5px); }
+            100% { transform: translateX(0); }
+        }
+
+        .shake {
+            animation: shake 0.5s;
+        }
+
+    </style>
+</head>
+<body>
+    <!-- Inicio del Navegador Superior -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:info@company.com">jose.garciamej@cecar.edu.co</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:010-020-0340">3054072701</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Cierre del Navegador Superior -->
+
+    <!-- Encabezado -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand text-success logo h1" href="index.html">
+                TuBienestar
+            </a>
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="templatemo_main_nav">
+                <ul class="navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Monitorías Académicas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Escuelas de Formación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Atención Médica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Atención Psicológica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Seguimiento TAE</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Cierre del Encabezado -->
+
+    <!-- Formulario de Inicio de Sesión -->
+    <div class="login-container">
+        <h2 class="login-title">Inicio de Sesión</h2>
+        <form id="loginForm">
+            <div class="mb-3">
+                <label for="role" class="form-label">Selecciona tu Rol</label>
+                <select class="form-select" id="role" required>
+                    <option value="">Selecciona un rol</option>
+                    <option value="adminMonitorias">Administrador de Monitorías Académicas</option>
+                    <option value="monitorAcademico">Monitor de Monitorías Académicas</option>
+                    <option value="estudiante">Estudiante</option>
+                    <option value="coordinador">Coordinador</option>
+                    <option value="superAdmin">SuperAdministrador</option>
+                    <option value="adminEscuelas">Administrador de Escuelas de Formación</option>
+                    <option value="monitorEscuelas">Monitor de Escuelas de Formación</option>
+                </select>
+            </div>
+            <div class="mb-3">
+                <label for="username" class="form-label">Usuario</label>
+                <input type="text" class="form-control" id="username" placeholder="Ingrese su usuario" required>
+            </div>
+            <div class="mb-3">
+                <label for="password" class="form-label">Contraseña</label>
+                <input type="password" class="form-control" id="password" placeholder="Ingrese su contraseña" required>
+            </div>
+            <button type="submit" class="btn-login">Iniciar Sesión</button>
+            <div id="message" class="message"></div>
+        </form>
+    </div>
+
+    <!-- Inicio del Pie de Página -->
+    <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">TuBienestar</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><i class="fas fa-map-marker-alt fa-fw"></i> Corporación Universitaria del Caribe CECAR</li>
+                        <li><i class="fas fa-phone fa-fw"></i> 3054072701</li>
+                        <li><i class="fas fa-envelope fa-fw"></i> jose.garciamej@cecar.edu.co</li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Enlaces Rápidos</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li><a class="text-light" href="#">Inicio</a></li>
+                        <li><a class="text-light" href="#">Monitorías Académicas</a></li>
+                        <li><a class="text-light" href="#">Escuelas de Formación</a></li>
+                        <li><a class="text-light" href="#">Atención Médica</a></li>
+                        <li><a class="text-light" href="#">Atención Psicológica</a></li>
+                        <li><a class="text-light" href="#">Seguimiento TAE</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-light border-bottom pb-3 border-light">Newsletter</h2>
+                    <p class="text-light">Suscríbete a nuestro boletín para recibir las últimas actualizaciones.</p>
+                    <form>
+                        <div class="input-group mb-3">
+                            <input type="text" class="form-control" placeholder="Tu correo electrónico" aria-label="Tu correo electrónico">
+                            <button class="btn btn-success" type="button">Suscribirse</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Cierre del Pie de Página -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Obtenemos el formulario y el elemento de mensaje
+        const loginForm = document.getElementById("loginForm");
+        const messageDiv = document.getElementById("message");
+
+        // Definimos las credenciales (esto es solo para demostración)
+        const credentials = {
+            adminMonitorias: { username: "admin", password: "admin123" },
+            monitorAcademico: { username: "monitor", password: "monitor123" },
+            estudiante: { username: "estudiante", password: "estudiante123" },
+            coordinador: { username: "coordinador", password: "coordinador123" },
+            superAdmin: { username: "superadmin", password: "superadmin123" },
+            adminEscuelas: { username: "adminEscuelas", password: "adminEscuelas123" },
+            monitorEscuelas: { username: "monitorEscuelas", password: "monitorEscuelas123" },
+        };
+
+        // Agregamos un event listener al formulario para manejar el inicio de sesión
+        loginForm.addEventListener("submit", function (event) {
+            event.preventDefault(); // Evita el comportamiento predeterminado del formulario
+
+            const role = document.getElementById("role").value;
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Validamos las credenciales
+            if (role && username && password) {
+                if (credentials[role] && credentials[role].username === username && credentials[role].password === password) {
+                    // Si las credenciales son correctas, redirigimos al usuario
+                    messageDiv.textContent = "Inicio de sesión exitoso. Redirigiendo...";
+                    messageDiv.className = "success";
+                    setTimeout(() => {
+                        // Aquí puedes redirigir a otra página, por ejemplo:
+                        window.location.href = "AdminMonitorias.html"; // Cambia esta URL a la de tu página de destino
+                    }, 2000); // Espera 2 segundos antes de redirigir
+                } else {
+                    // Si las credenciales son incorrectas, mostramos un mensaje de error
+                    messageDiv.textContent = "Usuario o contraseña incorrectos.";
+                    messageDiv.className = "error";
+                    messageDiv.classList.add("shake"); // Agregamos efecto de sacudida
+                }
+            } else {
+                // Si no se ha seleccionado un rol o faltan datos
+                messageDiv.textContent = "Por favor, completa todos los campos.";
+                messageDiv.className = "error";
+            }
+        });
+    </script>
+</body>
+</html>

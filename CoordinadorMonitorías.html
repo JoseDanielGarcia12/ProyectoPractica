@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienestar Institucional</title>
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+
+    <style>
+        .btn-custom {
+            background-color: #007bff;
+            color: white;
+        }
+
+        .btn-custom:hover {
+            background-color: #0056b3;
+        }
+
+        .card {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:jose.garciamej@cecar.edu.co">jose.garciamej@cecar.edu.co</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:3054072701">3054072701</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand text-success logo h1" href="index.html">TuBienestar</a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="templatemo_main_nav">
+                <ul class="navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Monitorías Académicas</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Escuelas de Formación</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Atención Médica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Atención Psicológica</a></li>
+                    <li class="nav-item"><a class="nav-link" href="Login.html">Seguimiento TAE</a></li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon position-relative text-decoration-none" href="Login.html">
+                        <button class="btn btn-dark">Iniciar Sesión</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Sistema de Gestión de Monitorías Académicas</h1>
+
+        <div class="row">
+            <!-- Sección de Generación de Informes -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-file-alt"></i> Generar Informes</h5>
+                        <button class="btn btn-custom" id="generarInformes">Generar Informes</button>
+                        <div id="informesResultados" class="mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Revisar Asistencia -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-users"></i> Revisar Asistencia</h5>
+                        <label for="filtroFecha">Filtrar por Fecha:</label>
+                        <input type="date" id="filtroFecha" class="form-control mb-2">
+                        <button class="btn btn-custom" id="filtrarAsistencia">Filtrar</button>
+                        <div id="asistenciaResultados" class="mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Revisar Retroalimentación -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-comments"></i> Revisar Retroalimentación</h5>
+                        <button class="btn btn-custom" id="revisarRetroalimentacion">Ver Retroalimentación</button>
+                        <div id="retroalimentacionResultados" class="mt-2"></div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sección de Asignar Roles -->
+            <div class="col-md-6 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title"><i class="fas fa-user-plus"></i> Asignar Roles</h5>
+                        <select id="staffList" class="form-control mb-2">
+                            <option>Selecciona un miembro del staff</option>
+                            <option>Miembro 1</option>
+                            <option>Miembro 2</option>
+                            <option>Miembro 3</option>
+                        </select>
+                        <button class="btn btn-custom" id="asignarRoles">Asignar Rol</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Función para generar informes y permitir su descarga
+        document.getElementById('generarInformes').addEventListener('click', function () {
+            const informes = [
+                { nombre: 'Informe de Inasistencias - Reporte 1', archivo: 'informe1.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 2', archivo: 'informe2.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 3', archivo: 'informe3.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 4', archivo: 'informe4.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 5', archivo: 'informe5.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 6', archivo: 'informe6.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 7', archivo: 'informe7.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 8', archivo: 'informe8.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 9', archivo: 'informe9.pdf' },
+                { nombre: 'Informe de Inasistencias - Reporte 10', archivo: 'informe10.pdf' },
+            ];
+
+            const resultadosDiv = document.getElementById('informesResultados');
+            resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+            informes.forEach((informe) => {
+                const link = document.createElement('a');
+                link.href = informe.archivo;
+                link.textContent = informe.nombre;
+                link.target = '_blank';
+                link.className = 'd-block'; // Clase para mostrar como bloque
+                resultadosDiv.appendChild(link);
+            });
+        });
+
+        // Función para filtrar asistencia por fecha
+        document.getElementById('filtrarAsistencia').addEventListener('click', function () {
+            const fecha = document.getElementById('filtroFecha').value;
+            const resultadosDiv = document.getElementById('asistenciaResultados');
+            resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+            if (fecha) {
+                const asistencia = [
+                    { fecha: '2023-09-01', estudiante: 'Estudiante 1', estado: 'Asistió' },
+                    { fecha: '2023-09-01', estudiante: 'Estudiante 2', estado: 'No Asistió' },
+                    { fecha: '2023-09-02', estudiante: 'Estudiante 1', estado: 'Asistió' },
+                    { fecha: '2023-09-02', estudiante: 'Estudiante 3', estado: 'No Asistió' },
+                    { fecha: '2023-09-03', estudiante: 'Estudiante 2', estado: 'Asistió' },
+                    { fecha: '2023-09-03', estudiante: 'Estudiante 3', estado: 'Asistió' },
+                ];
+
+                const asistenciaFiltrada = asistencia.filter(item => item.fecha === fecha);
+
+                if (asistenciaFiltrada.length > 0) {
+                    asistenciaFiltrada.forEach(item => {
+                        const p = document.createElement('p');
+                        p.textContent = `Fecha: ${item.fecha}, Estudiante: ${item.estudiante}, Estado: ${item.estado}`;
+                        resultadosDiv.appendChild(p);
+                    });
+                } else {
+                    resultadosDiv.textContent = 'No hay asistencia registrada para esta fecha.';
+                }
+            } else {
+                resultadosDiv.textContent = 'Por favor, selecciona una fecha.';
+            }
+        });
+
+        // Función para revisar retroalimentación
+        document.getElementById('revisarRetroalimentacion').addEventListener('click', function () {
+            const resultadosDiv = document.getElementById('retroalimentacionResultados');
+            resultadosDiv.innerHTML = ''; // Limpiar resultados anteriores
+
+            const retroalimentacion = [
+                { estudiante: 'Estudiante 1', comentario: 'La monitoría fue excelente.' },
+                { estudiante: 'Estudiante 2', comentario: 'Me gustaría más tiempo para practicar.' },
+                { estudiante: 'Estudiante 3', comentario: 'Satisfecho con el apoyo recibido.' },
+            ];
+
+            retroalimentacion.forEach(item => {
+                const p = document.createElement('p');
+                p.textContent = `Estudiante: ${item.estudiante}, Comentario: ${item.comentario}`;
+                resultadosDiv.appendChild(p);
+            });
+        });
+
+        // Función para asignar roles
+        document.getElementById('asignarRoles').addEventListener('click', function () {
+            const selectedStaff = document.getElementById('staffList').value;
+            const resultadosDiv = document.getElementById('asistenciaResultados');
+
+            if (selectedStaff !== 'Selecciona un miembro del staff') {
+                resultadosDiv.innerHTML = `Rol asignado a: ${selectedStaff}`;
+            } else {
+                resultadosDiv.innerHTML = 'Por favor, selecciona un miembro del staff.';
+            }
+        });
+    </script>
+
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+</body>
+
+</html>

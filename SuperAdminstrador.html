@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Bienestar Institucional</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+</head>
+
+<body>
+    <!-- Start Top Nav -->
+    <nav class="navbar navbar-expand-lg bg-dark navbar-light d-none d-lg-block" id="templatemo_nav_top">
+        <div class="container text-light">
+            <div class="w-100 d-flex justify-content-between">
+                <div>
+                    <i class="fa fa-envelope mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="mailto:jose.garciamej@cecar.edu.co">jose.garciamej@cecar.edu.co</a>
+                    <i class="fa fa-phone mx-2"></i>
+                    <a class="navbar-sm-brand text-light text-decoration-none" href="tel:3054072701">3054072701</a>
+                </div>
+                <div>
+                    <a class="text-light" href="https://fb.com/templatemo" target="_blank" rel="sponsored"><i class="fab fa-facebook-f fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.instagram.com/" target="_blank"><i class="fab fa-instagram fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://twitter.com/" target="_blank"><i class="fab fa-twitter fa-sm fa-fw me-2"></i></a>
+                    <a class="text-light" href="https://www.linkedin.com/" target="_blank"><i class="fab fa-linkedin fa-sm fa-fw"></i></a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Top Nav -->
+
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a class="navbar-brand text-success logo h1" href="index.html">
+                TuBienestar
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse d-lg-flex justify-content-between" id="templatemo_main_nav">
+                <ul class="navbar-nav d-flex justify-content-between mx-lg-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Monitorías Académicas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Escuelas de Formación</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Atención Médica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Atención Psicológica</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="Login.html">Seguimiento TAE</a>
+                    </li>
+                </ul>
+
+                <div class="d-flex align-items-center">
+                    <div class="d-lg-none flex-sm-fill mt-3 mb-4 col-7 col-sm-auto pr-3">
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="inputMobileSearch" placeholder="Search ...">
+                            <div class="input-group-text">
+                                <i class="fa fa-fw fa-search"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="nav-icon position-relative text-decoration-none" href="Login.html">
+                        <button class="btn btn-dark">Iniciar Sesión</button>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <div class="container mt-5">
+        <h1>Gestión de Monitorías</h1>
+
+        <!-- Asignar Roles -->
+        <div class="mb-4">
+            <h2>Asignar Rol</h2>
+            <label for="staffMemberSelect">Seleccionar Miembro del Personal:</label>
+            <select id="staffMemberSelect" class="form-control">
+                <option value="Staff 1">Staff 1</option>
+                <option value="Staff 2">Staff 2</option>
+                <!-- Más miembros -->
+            </select>
+
+            <label for="roleSelect">Seleccionar Rol:</label>
+            <select id="roleSelect" class="form-control">
+                <option value="Monitor">Monitor</option>
+                <option value="Administrador">Administrador</option>
+                <option value="Estudiante">Estudiante</option>
+                <!-- Más roles -->
+            </select>
+
+            <button class="btn btn-primary mt-2" onclick="assignRole()">Asignar Rol</button>
+            <div id="roleAssignmentFeedback" class="mt-3"></div>
+        </div>
+
+        <!-- Eliminar Preguntas -->
+        <div class="mb-4">
+            <h2>Eliminar Pregunta</h2>
+            <label for="questionSelect">Seleccionar Pregunta:</label>
+            <select id="questionSelect" class="form-control" multiple>
+                <option value="Pregunta 1">Pregunta 1</option>
+                <option value="Pregunta 2">Pregunta 2</option>
+                <!-- Más preguntas -->
+            </select>
+            <button class="btn btn-danger mt-2" onclick="removeQuestion()">Eliminar Pregunta</button>
+            <div id="questionRemovalFeedback" class="mt-3"></div>
+        </div>
+
+        <!-- Ver Horarios -->
+        <div class="mb-4">
+            <h2>Ver Horarios</h2>
+            <button class="btn btn-info" onclick="viewSchedule()">Mostrar Horarios</button>
+            <div id="scheduleFeedback" class="mt-3"></div>
+            
+            <h3 class="mt-4">Agregar Nuevo Horario</h3>
+            <label for="newSchedule">Nuevo Horario:</label>
+            <input type="text" id="newSchedule" class="form-control" placeholder="Ejemplo: Lunes 10:00 AM - 12:00 PM">
+            <button class="btn btn-success mt-2" onclick="addSchedule()">Agregar Horario</button>
+        </div>
+
+        <!-- Modificar Información del Staff -->
+        <div class="mb-4">
+            <h2>Modificar Información del Staff</h2>
+            <label for="staffMemberModifySelect">Seleccionar Miembro del Personal:</label>
+            <select id="staffMemberModifySelect" class="form-control">
+                <option value="Staff 1">Staff 1</option>
+                <option value="Staff 2">Staff 2</option>
+                <!-- Más miembros -->
+            </select>
+
+            <label for="infoSelect">Seleccionar Información a Modificar:</label>
+            <select id="infoSelect" class="form-control">
+                <option value="Nombre">Nombre</option>
+                <option value="Correo">Correo</option>
+                <option value="Teléfono">Teléfono</option>
+                <!-- Más opciones -->
+            </select>
+
+            <label for="newStaffInfo">Nueva Información:</label>
+            <input type="text" id="newStaffInfo" class="form-control" placeholder="Ingrese nueva información">
+
+            <button class="btn btn-warning mt-2" onclick="modifyStaff()">Modificar Información</button>
+            <div id="staffModificationFeedback" class="mt-3"></div>
+        </div>
+
+        <!-- Revisar Informes -->
+        <div class="mb-4">
+            <h2>Revisar Informes</h2>
+            <button class="btn btn-primary" onclick="reviewReports()">Mostrar Informes</button>
+            <div id="reportsExamples" class="mt-3" style="display: none;">
+                <h4>Ejemplos de Informes:</h4>
+                <ul>
+                    <li><strong>Informe 1:</strong> Detalles sobre la asistencia</li>
+                    <li><strong>Informe 2:</strong> Feedback de los estudiantes</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function assignRole() {
+            const staffMember = document.getElementById("staffMemberSelect").value;
+            const role = document.getElementById("roleSelect").value;
+
+            if (confirm(`¿Está seguro de que desea asignar el rol "${role}" a "${staffMember}"?`)) {
+                document.getElementById("roleAssignmentFeedback").innerText = `Rol "${role}" asignado a "${staffMember}".`;
+            } else {
+                document.getElementById("roleAssignmentFeedback").innerText = `Asignación cancelada.`;
+            }
+        }
+
+        function removeQuestion() {
+            const selectedQuestions = [...document.getElementById("questionSelect").selectedOptions].map(option => option.value);
+            
+            if (selectedQuestions.length === 0) {
+                document.getElementById("questionRemovalFeedback").innerText = "Por favor, seleccione al menos una pregunta.";
+                return;
+            }
+
+            if (confirm(`¿Está seguro de que desea eliminar las preguntas: ${selectedQuestions.join(", ")}?`)) {
+                document.getElementById("questionRemovalFeedback").innerText = `Preguntas eliminadas: ${selectedQuestions.join(", ")}.`;
+            } else {
+                document.getElementById("questionRemovalFeedback").innerText = `Eliminación cancelada.`;
+            }
+        }
+
+        function addSchedule() {
+            const newSchedule = document.getElementById("newSchedule").value;
+
+            if (newSchedule.trim() === "") {
+                alert("Por favor, ingrese un horario válido.");
+                return;
+            }
+
+            alert(`Nuevo horario "${newSchedule}" agregado.`);
+            document.getElementById("newSchedule").value = ""; // Limpiar el campo
+        }
+
+        function modifyStaff() {
+            const staffMember = document.getElementById("staffMemberModifySelect").value;
+            const infoType = document.getElementById("infoSelect").value;
+            const newInfo = document.getElementById("newStaffInfo").value;
+
+            if (newInfo.trim() === "") {
+                document.getElementById("staffModificationFeedback").innerText = "Por favor, ingrese nueva información.";
+                return;
+            }
+
+            document.getElementById("staffModificationFeedback").innerText = `Información de "${staffMember}" (${infoType}) modificada a: "${newInfo}".`;
+        }
+
+        function reviewReports() {
+            const reportsDiv = document.getElementById("reportsExamples");
+            reportsDiv.style.display = reportsDiv.style.display === "none" ? "block" : "none";
+            document.getElementById("scheduleFeedback").innerText = reportsDiv.style.display === "block" ? "Revisando informes seleccionados." : "";
+        }
+    </script>
+     <!-- Start Footer -->
+     <footer class="bg-dark" id="tempaltemo_footer">
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-4 pt-5">
+                    <h2 class="h2 text-success border-bottom pb-3 border-light logo">TuBienestar</h2>
+                    <ul class="list-unstyled text-light footer-link-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt fa-fw"></i>
+                            Corporación Universitaria del Caribe CECAR
+                        </li>
+                        <li>
+                            <i class="fa fa-phone fa-fw"></i>
+                            <a class="text-decoration-none" href="tel:010-020-0340">3054072701</a>
+                        </li>
+                        <li>
+                            <i class="fa fa-envelope fa-fw"></i>
+                            <a class="text-decoration-none" href="mailto:info@company.com">jose.garciamej@cecar.edu.co</a>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="row text-light mb-4">
+                <div class="col-12 mb-3">
+                    <div class="w-100 my-3 border-top border-light"></div>
+                </div>
+                <div class="col-auto me-auto">
+                    <ul class="list-inline text-left footer-icons">
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="http://facebook.com/"><i class="fab fa-facebook-f fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.instagram.com/"><i class="fab fa-instagram fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://twitter.com/"><i class="fab fa-twitter fa-lg fa-fw"></i></a>
+                        </li>
+                        <li class="list-inline-item border border-light rounded-circle text-center">
+                            <a class="text-light text-decoration-none" target="_blank" href="https://www.linkedin.com/"><i class="fab fa-linkedin fa-lg fa-fw"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-auto">
+                    <label class="sr-only" for="subscribeEmail">Correo Electrónico</label>
+                    <div class="input-group mb-2">
+                        <input type="text" class="form-control bg-dark border-light" id="subscribeEmail" placeholder="Email address">
+                        <div class="input-group-text btn-success text-light">Registrarse</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="w-100 bg-black py-3">
+            <div class="container">
+                <div class="row pt-2">
+                    <div class="col-12">
+                        <p class="text-left text-light">
+                            Copyright &copy; 2024 Ferret Solutions 
+                            | Diseñado por <a rel="sponsored" href="https://templatemo.com" target="_blank">José Daniel García Mejía
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </footer>
+    <!-- End Footer -->
+
+    <!-- Start Script -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <!-- End Script -->
+</body>
+
+</html>
